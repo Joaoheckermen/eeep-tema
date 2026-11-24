@@ -17,11 +17,35 @@ if (!defined('ABSPATH')) exit;
 <div class="top-accessibility-bar">
     <div class="container accessibility-flex">
         <span class="accessibility-title">Acessibilidade:</span>
-        <div class="accessibility-buttons">
-            <button type="button" onclick="alterarFonte(1)" aria-label="Aumentar fonte">A+</button>
-            <button type="button" onclick="alterarFonte(-1)" aria-label="Diminuir fonte">A-</button>
-            <button type="button" onclick="resetarFonte()" aria-label="Restaurar tamanho da fonte">A</button>
-            <button type="button" onclick="alternarAltoContraste()" aria-label="Alternar Alto Contraste">🌓 Alto Contraste</button>
+        <div class="accessibility-buttons" role="group" aria-label="Ferramentas de acessibilidade">
+
+            <button type="button" class="a11y-btn" onclick="alterarFonte(1)" aria-label="Aumentar fonte" title="Aumentar fonte">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M3 20 8.5 6 14 20M5.2 15h6.6"/>
+                    <path d="M18 5v6M15 8h6"/>
+                </svg>
+            </button>
+
+            <button type="button" class="a11y-btn" onclick="alterarFonte(-1)" aria-label="Diminuir fonte" title="Diminuir fonte">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M3 20 8.5 6 14 20M5.2 15h6.6"/>
+                    <path d="M15 8h6"/>
+                </svg>
+            </button>
+
+            <button type="button" class="a11y-btn" onclick="resetarFonte()" aria-label="Restaurar tamanho da fonte" title="Restaurar tamanho da fonte">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M5 20 12 4l7 16M8 14h8"/>
+                </svg>
+            </button>
+
+            <button type="button" class="a11y-btn a11y-btn-contraste" onclick="alternarAltoContraste()" aria-label="Alternar alto contraste" title="Alto contraste">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/>
+                </svg>
+            </button>
+
         </div>
     </div>
 </div>
@@ -30,8 +54,8 @@ if (!defined('ABSPATH')) exit;
     <div class="container header-flex">
         <div class="site-branding">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="logo-link">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/logo.svg'); ?>" alt="EEEP Professor Antonio Valmir da Silva" class="site-logo">
-                <span class="site-title-text">EEEP Prof. Antonio Valmir</span>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/icons/ti2valmir.png'); ?>" alt="E.E.E.P. Professor Antônio Valmir da Silva" class="site-logo">
+                <span class="site-title-text">E.E.E.P. Prof. Antônio Valmir da Silva</span>
             </a>
         </div>
 
@@ -44,9 +68,9 @@ if (!defined('ABSPATH')) exit;
             <ul id="primary-menu" class="nav-menu">
                 <li><a href="<?php echo esc_url(home_url('/')); ?>">Início</a></li>
                 <li><a href="<?php echo esc_url(home_url('/#cursos')); ?>">Cursos</a></li>
-                <li><a href="<?php echo esc_url(get_template_directory_uri() . '/pdf/edital-2026.pdf'); ?>" target="_blank" rel="noopener">Edital 2026 📑</a></li>
-                <li><a href="<?php echo esc_url(get_template_directory_uri() . '/pdf/resultado-2025.pdf'); ?>" target="_blank" rel="noopener">Resultado 2025 📊</a></li>
-                <li><a href="https://www.youtube.com/@EEEPPROFANTONIOVALMIR" target="_blank" rel="noopener" class="nav-btn-yt">YouTube 📺</a></li>
+                <li><a href="<?php echo esc_url(get_template_directory_uri() . '/pdf/edital-2026.pdf'); ?>" target="_blank" rel="noopener">Edital 2026</a></li>
+                <li><a href="<?php echo esc_url(get_template_directory_uri() . '/pdf/resultado-2025.pdf'); ?>" target="_blank" rel="noopener">Resultado 2025</a></li>
+                <li><a href="<?php echo esc_url(home_url('/?p=16')); ?>" target="_blank" rel="noopener">Sobre nós</a></li>
             </ul>
         </nav>
     </div>
