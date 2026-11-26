@@ -292,7 +292,8 @@ body.alto-contraste .a11y-btn-contraste {
     background: linear-gradient(135deg, rgba(0, 135, 54, 0.88) 0%, rgba(0, 90, 36, 0.92) 100%),
     var(--hero-bg, none);
     background-repeat: no-repeat;
-    background-size: 1500px 400px;
+    background-size: cover;
+    background-position: center 50%;
     color: var(--branco);
     padding: 60px 0;
     text-align: center;
@@ -531,36 +532,112 @@ body.alto-contraste .a11y-btn-contraste {
     border: 0;
 }
 
-/* ALTO CONTRASTE */
+/* ALTO CONTRASTE — MODO ESCuro VERDE */
 body.alto-contraste {
-    background-color: #000000 !important;
-    color: #ffffff !important;
+    background-color: #07110b !important;
+    color: #eef7f1 !important;
 }
 
 body.alto-contraste .site-header,
-body.alto-contraste .site-footer,
 body.alto-contraste .top-accessibility-bar {
-    background-color: #000000 !important;
-    border-bottom: 2px solid #ffff00 !important;
+    background-color: #003d1b !important;
+    border-bottom: 2px solid #22a85a !important;
+}
+
+body.alto-contraste .site-footer {
+    background-color: #002713 !important;
+    color: #eef7f1 !important;
+    border-top: 2px solid #22a85a !important;
 }
 
 body.alto-contraste .nav-menu {
-    background-color: #121212 !important;
+    background-color: #0b2415 !important;
+}
+
+body.alto-contraste .home-hero {
+    background:
+        linear-gradient(135deg, rgba(0, 90, 36, 0.94), rgba(4, 30, 17, 0.98)),
+        var(--hero-bg, none) !important;
+}
+
+body.alto-contraste .home-noticias,
+body.alto-contraste .curso-apresentacao,
+body.alto-contraste .noticia-card,
+body.alto-contraste .atalho-card,
+body.alto-contraste .curso-card,
+body.alto-contraste .curso-pagina {
+    background-color: #102218 !important;
+    color: #eef7f1 !important;
 }
 
 body.alto-contraste .atalho-card,
 body.alto-contraste .curso-card,
-body.alto-contraste .noticia-card {
-    background-color: #121212 !important;
-    color: #ffffff !important;
-    border: 1px solid #ffff00 !important;
+body.alto-contraste .noticia-card,
+body.alto-contraste .curso-pagina,
+body.alto-contraste .curso-ficha,
+body.alto-contraste .curso-modulos,
+body.alto-contraste .curso-apresentacao {
+    border: 1px solid #22a85a !important;
+}
+
+body.alto-contraste .atalho-card {
+    border-top: 4px solid #22a85a !important;
+}
+
+body.alto-contraste .curso-card {
+    border-top: 4px solid #22a85a !important;
+}
+
+body.alto-contraste .noticia-body,
+body.alto-contraste .curso-bloco,
+body.alto-contraste .curso-resumo {
+    color: #eef7f1 !important;
 }
 
 body.alto-contraste a,
 body.alto-contraste h1,
 body.alto-contraste h2,
 body.alto-contraste h3 {
-    color: #ffff00 !important;
+    color: #75d99a !important;
+}
+
+body.alto-contraste p,
+body.alto-contraste li,
+body.alto-contraste dd,
+body.alto-contraste dt,
+body.alto-contraste .atalho-card p,
+body.alto-contraste .curso-card p,
+body.alto-contraste .noticia-body p,
+body.alto-contraste .noticia-data {
+    color: #d8e8de !important;
+}
+
+body.alto-contraste .curso-tag {
+    background-color: #174d2c !important;
+    color: #a4edbd !important;
+}
+
+body.alto-contraste .a11y-btn {
+    border-color: #75d99a;
+    color: #ffffff;
+}
+
+body.alto-contraste .a11y-btn-contraste {
+    background: #008736;
+    color: #ffffff;
+    border-color: #a4edbd;
+}
+
+body.alto-contraste .nav-menu a:hover,
+body.alto-contraste .a11y-btn:hover {
+    background: #174d2c;
+    border-color: #a4edbd;
+}
+
+body.alto-contraste .nav-menu .nav-btn-yt,
+body.alto-contraste .btn-primary {
+    background-color: var(--amarelo-brasil) !important;
+    color: #002776 !important;
 }
 
 /* ==========================================================
@@ -799,9 +876,21 @@ body.alto-contraste .curso-pagina,
 body.alto-contraste .curso-ficha,
 body.alto-contraste .curso-modulos,
 body.alto-contraste .curso-apresentacao {
-    background-color: #121212 !important;
-    color: #ffffff !important;
-    border: 1px solid #ffff00 !important;
+    background-color: #102218 !important;
+    color: #eef7f1 !important;
+    border: 1px solid #22a85a !important;
+}
+
+body.alto-contraste .curso-ficha {
+    background-color: #0b2415 !important;
+}
+
+body.alto-contraste .curso-modulos {
+    background-color: #003d1b !important;
+}
+
+body.alto-contraste .curso-apresentacao {
+    border-left: 5px solid #22a85a !important;
 }
 
 body.alto-contraste .curso-resumo,
@@ -810,16 +899,94 @@ body.alto-contraste .curso-ficha dd,
 body.alto-contraste .curso-bloco p,
 body.alto-contraste .curso-bloco li,
 body.alto-contraste .curso-modulos li {
-    color: #ffffff !important;
+    color: #eef7f1 !important;
 }
 
-body.alto-contraste .curso-modulos strong {
-    color: #ffff00 !important;
+body.alto-contraste .curso-modulos h2,
+body.alto-contraste .curso-modulos strong,
+body.alto-contraste .curso-bloco h2,
+body.alto-contraste .curso-pagina-topo h1 {
+    color: #75d99a !important;
 }
 
-/* Corrige botões amarelos com texto amarelo no alto contraste (vale para o site todo) */
+/* Botões no modo escuro verde */
 body.alto-contraste .btn {
-    background-color: #000000 !important;
-    color: #ffff00 !important;
-    border: 2px solid #ffff00 !important;
+    background-color: #174d2c !important;
+    color: #ffffff !important;
+    border: 2px solid #75d99a !important;
+}
+
+body.alto-contraste .btn-primary,
+body.alto-contraste .nav-menu .nav-btn-yt {
+    background-color: var(--amarelo-brasil) !important;
+    color: #002776 !important;
+    border-color: var(--amarelo-brasil) !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body,
+.site-header,
+.top-accessibility-bar,
+.site-footer,
+.nav-menu,
+.home-hero,
+.home-noticias,
+.atalho-card,
+.curso-card,
+.noticia-card,
+.curso-pagina,
+.curso-ficha,
+.curso-modulos,
+.curso-apresentacao,
+body a,
+body h1,
+body h2,
+body h3,
+body p,
+body li,
+body dd,
+body dt {
+    transition:
+        background-color 0.45s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+#cursos {
+    scroll-margin-top: 110px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    body,
+    .site-header,
+    .top-accessibility-bar,
+    .site-footer,
+    .nav-menu,
+    .home-hero,
+    .home-noticias,
+    .atalho-card,
+    .curso-card,
+    .noticia-card,
+    .curso-pagina,
+    .curso-ficha,
+    .curso-modulos,
+    .curso-apresentacao,
+    body a,
+    body h1,
+    body h2,
+    body h3,
+    body p,
+    body li,
+    body dd,
+    body dt {
+        transition: none;
+    }
 }
