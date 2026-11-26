@@ -97,3 +97,52 @@ function eeep_autocriar_cursos() {
     update_option('eeep_cursos_populados_v1', true);
 }
 add_action('init', 'eeep_autocriar_cursos', 20);
+
+// COLE TUDO ABAIXO desta linha no FINAL do functions.php (sem repetir o <?php de cima).
+
+// ----------------------------------------------------------
+// Página "Sobre" estática: o conteúdo fica em pagina-sobre.php
+// (no tema), e não em um post/página do banco de dados.
+// ----------------------------------------------------------
+
+// 1) Cria a URL /sobre/
+function eeep_sobre_regra() {
+    add_rewrite_rule('^sobre/?$', 'index.php?eeep_pagina=sobre', 'top');
+}
+add_action('init', 'eeep_sobre_regra');
+
+// 2) Avisa o WordPress que existe o parâmetro "eeep_pagina"
+function eeep_sobre_query_var($vars) {
+    $vars[] = 'eeep_pagina';
+    return $vars;
+}
+add_filter('query_vars', 'eeep_sobre_query_var');
+
+// 3) Quando a URL for /sobre/, carrega o arquivo do tema
+function eeep_sobre_template($template) {
+    if (get_query_var('eeep_pagina') === 'sobre') {
+        $arquivo = get_template_directory() . '/pagina-sobre.php';
+        if (file_exists($arquivo)) {
+            status_header(200);
+            return $arquivo;
+        }
+    }
+    return $template;
+}
+add_filter('template_include', 'eeep_sobre_template');
+
+// 4) Título da aba do navegador
+function eeep_sobre_titulo($titulo) {
+    if (get_query_var('eeep_pagina') === 'sobre') {
+        return 'Sobre — ' . get_bloginfo('name');
+    }
+    return $titulo;
+}
+add_filter('pre_get_document_title', 'eeep_sobre_titulo');
+
+// 5) Atualiza as regras de URL quando o tema é ativado
+function eeep_sobre_flush() {
+    eeep_sobre_regra();
+    flush_rewrite_rules();
+}
+add_action('after_switch_theme', 'eeep_sobre_flush');

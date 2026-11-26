@@ -10,8 +10,8 @@ Version: 1.1
     --verde-brasil: #008736;
     --verde-escuro: #005a24;
     --azul-brasil: #002776;
-    --amarelo-brasil: #ffdf00;
-    --amarelo-hover: #e6c800;
+    --amarelo-brasil: #029902;
+    --amarelo-hover: #019101;
     --cinza-fundo: #f4f6f9;
     --texto-cor: #333333;
     --branco: #ffffff;
@@ -280,7 +280,7 @@ body.alto-contraste .a11y-btn-contraste {
 
 .btn-primary {
     background-color: var(--amarelo-brasil);
-    color: var(--azul-brasil);
+    color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -641,9 +641,10 @@ body.alto-contraste .btn-primary {
 }
 
 /* ==========================================================
- *  PÁGINA DO CURSO  (single-curso.php)
- *  Cole este bloco no FINAL do style.css
- *  ========================================================== */
+   PÁGINA DO CURSO  (single-curso.php) — layout centralizado
+   Se você já colou a versão anterior no style.css, APAGUE-A
+   e cole este bloco no lugar (no final do arquivo).
+   ========================================================== */
 
 .btn-secondary {
     background-color: var(--azul-brasil);
@@ -670,6 +671,11 @@ body.alto-contraste .btn-primary {
     padding: 24px 0 50px;
 }
 
+/* Coluna central, mais estreita que o resto do site */
+.curso-single-page .container {
+    max-width: 960px;
+}
+
 .voltar-link {
     display: inline-block;
     margin-bottom: 14px;
@@ -689,19 +695,20 @@ body.alto-contraste .btn-primary {
     border: 1px solid #e2e8f0;
     border-top: 4px solid var(--verde-brasil);
     border-radius: 12px;
-    padding: 32px;
+    padding: 36px 32px;
 }
 
+/* Topo: título grande + imagem, centralizados */
 .curso-pagina-topo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 32px;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
+    text-align: center;
 }
 
 .curso-titulo-bloco {
-    flex: 1;
     min-width: 0;
 }
 
@@ -712,6 +719,13 @@ body.alto-contraste .btn-primary {
     margin-bottom: 10px;
 }
 
+.curso-resumo {
+    color: #475569;
+    font-size: 1.05rem;
+    max-width: 55ch;
+    margin: 0 auto;
+}
+
 .curso-imagem {
     width: clamp(150px, 24vw, 260px);
     max-height: 220px;
@@ -720,36 +734,14 @@ body.alto-contraste .btn-primary {
     flex-shrink: 0;
 }
 
-.curso-resumo {
-    color: #475569;
-    font-size: 1.05rem;
-    max-width: 70ch;
+/* Conteúdo em uma coluna só (o espaço entre os blocos vem da margem de cada bloco, mais abaixo) */
+.curso-conteudo {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
 }
 
-/* Grade: ficha + módulos em cima; apresentação, perfil e campo à esquerda;
- *  botão do edital à direita */
-.curso-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
-    grid-template-areas:
-    "ficha  modulos"
-    "apres  edital"
-    "perfil edital"
-    "campo  edital"
-    "outras edital";
-    gap: 24px 28px;
-    align-items: start;
-}
-
-.curso-ficha        { grid-area: ficha; }
-.curso-modulos      { grid-area: modulos; }
-.curso-edital       { grid-area: edital; }
-.curso-apresentacao { grid-area: apres; }
-.curso-perfil       { grid-area: perfil; }
-.curso-campo        { grid-area: campo; }
-.curso-outras       { grid-area: outras; }
-
-/* Caixa azul: ficha técnica */
+/* Faixa azul: ficha técnica */
 .curso-ficha {
     background: var(--azul-brasil);
     color: var(--branco);
@@ -759,7 +751,9 @@ body.alto-contraste .btn-primary {
 
 .curso-ficha dl {
     display: grid;
-    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 18px 24px;
+    text-align: center;
 }
 
 .curso-ficha dt {
@@ -773,34 +767,19 @@ body.alto-contraste .btn-primary {
     font-weight: 700;
 }
 
-/* Caixa verde: módulos */
-.curso-modulos {
-    background: var(--verde-escuro);
-    color: var(--branco);
-    border-radius: 10px;
-    padding: 22px 24px;
+/* Botões de ação (edital e documento do curso) */
+.curso-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
 }
 
-.curso-modulos h2 {
-    color: var(--branco);
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-}
-
-.curso-modulos ul {
-    list-style: none;
-    display: grid;
-    gap: 12px;
-}
-
-.curso-modulos li {
-    font-size: 0.92rem;
-    line-height: 1.5;
-}
-
-.curso-modulos strong {
-    display: block;
-    color: var(--amarelo-brasil);
+/* Botão da matriz curricular (PDF), no final da página */
+.curso-matriz {
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
 }
 
 /* Blocos de texto (apresentação, perfil, campo de atuação) */
@@ -813,7 +792,6 @@ body.alto-contraste .btn-primary {
 .curso-bloco p {
     line-height: 1.7;
     margin-bottom: 12px;
-    max-width: 75ch;
 }
 
 .curso-bloco ul {
@@ -827,11 +805,8 @@ body.alto-contraste .btn-primary {
     border-left: 5px solid var(--verde-brasil);
     border-radius: 10px;
     padding: 22px 24px;
-}
-
-/* Botão do edital */
-.curso-edital .btn {
-    display: block;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 /* Botão Voltar do rodapé */
@@ -843,10 +818,12 @@ body.alto-contraste .btn-primary {
 /* Celular e tablet */
 @media (max-width: 820px) {
     .curso-pagina {
-        padding: 22px 18px;
+        padding: 24px 18px;
     }
 
+    /* imagem em cima, título embaixo */
     .curso-pagina-topo {
+        flex-direction: column-reverse;
         gap: 16px;
     }
 
@@ -855,72 +832,36 @@ body.alto-contraste .btn-primary {
     }
 
     .curso-imagem {
-        width: 100px;
+        width: 120px;
     }
 
-    .curso-grid {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-        "ficha"
-        "modulos"
-        "edital"
-        "apres"
-        "perfil"
-        "campo"
-        "outras";
+    .curso-matriz .btn {
+        width: 100%;
     }
 }
 
 /* Alto contraste */
 body.alto-contraste .curso-pagina,
 body.alto-contraste .curso-ficha,
-body.alto-contraste .curso-modulos,
 body.alto-contraste .curso-apresentacao {
-    background-color: #102218 !important;
-    color: #eef7f1 !important;
-    border: 1px solid #22a85a !important;
-}
-
-body.alto-contraste .curso-ficha {
-    background-color: #0b2415 !important;
-}
-
-body.alto-contraste .curso-modulos {
-    background-color: #003d1b !important;
-}
-
-body.alto-contraste .curso-apresentacao {
-    border-left: 5px solid #22a85a !important;
+    background-color: #121212 !important;
+    color: #ffffff !important;
+    border: 1px solid #25a025 !important;
 }
 
 body.alto-contraste .curso-resumo,
 body.alto-contraste .curso-ficha dt,
 body.alto-contraste .curso-ficha dd,
 body.alto-contraste .curso-bloco p,
-body.alto-contraste .curso-bloco li,
-body.alto-contraste .curso-modulos li {
-    color: #eef7f1 !important;
-}
-
-body.alto-contraste .curso-modulos h2,
-body.alto-contraste .curso-modulos strong,
-body.alto-contraste .curso-bloco h2,
-body.alto-contraste .curso-pagina-topo h1 {
-    color: #75d99a !important;
-}
-
-/* Botões no modo escuro verde */
-body.alto-contraste .btn {
-    background-color: #174d2c !important;
+body.alto-contraste .curso-bloco li {
     color: #ffffff !important;
-    border: 2px solid #75d99a !important;
 }
 
-body.alto-contraste .btn-primary,
-body.alto-contraste .nav-menu .nav-btn-yt {
-    background-color: var(--amarelo-brasil) !important;
-    color: #002776 !important;
-    border-color: var(--amarelo-brasil) !important;
+/* Botões amarelos com texto amarelo ficavam invisíveis no alto contraste (vale para o site todo) */
+body.alto-contraste .btn {
+    background-color: #000000 !important;
+    color: #25a025 !important;
+    border: 2px solid #25a025 !important;
 }
 
 html {
@@ -988,5 +929,125 @@ body dt {
     body dd,
     body dt {
         transition: none;
+    }
+}
+
+/* ==========================================================
+   PÁGINA SOBRE  (pagina-sobre.php)
+   Cole no FINAL do style.css, DEPOIS do bloco "PÁGINA DO CURSO"
+   (a página Sobre reaproveita o cartão, o topo e os botões dele).
+   ========================================================== */
+
+/* Subtítulos dentro das seções de texto (ex.: Nossa história) */
+.curso-bloco h3 {
+    color: var(--azul-brasil);
+    font-size: 1.1rem;
+    margin: 20px 0 8px;
+}
+
+#curso-bloco-espec {
+    padding-top: 10px;
+}
+
+.curso-bloco li {
+    margin-bottom: 8px;
+}
+
+.curso-bloco .sobre-cursos li,
+.curso-bloco .sobre-contatos li {
+    margin-bottom: 0;
+}
+
+/* Lista de cursos */
+.curso-bloco .sobre-cursos {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+.sobre-cursos a {
+    display: block;
+    padding: 12px 16px;
+    background: var(--cinza-fundo);
+    border-left: 4px solid var(--verde-brasil);
+    border-radius: 8px;
+    color: var(--azul-brasil);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.sobre-cursos a:hover {
+    background: #e6f4ea;
+}
+
+/* Cartões de contato */
+.curso-bloco .sobre-contatos {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 14px;
+}
+
+.sobre-rotulo {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #d6e0ff;
+}
+
+.sobre-contato a {
+    color: var(--branco);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.sobre-contato a:focus-visible,
+.sobre-cursos a:focus-visible {
+    outline: 3px solid var(--amarelo-brasil);
+    outline-offset: 2px;
+}
+
+/* Alto contraste */
+body.alto-contraste .sobre-cursos a,
+body.alto-contraste .sobre-contato {
+    background-color: #121212 !important;
+    border: 1px solid #ffff00 !important;
+}
+
+body.alto-contraste .sobre-rotulo,
+body.alto-contraste .sobre-contato span {
+    color: #ffffff !important;
+}
+
+/* Espaçamento da página de curso: cada bloco ganha espaço embaixo */
+.curso-ficha,
+.curso-acoes,
+.curso-edital,
+.curso-bloco,
+.curso-matriz {
+    margin-bottom: 44px;
+}
+
+.curso-conteudo > :last-child,
+.curso-grid > :last-child {
+    margin-bottom: 0;
+}
+
+.curso-pagina-topo { margin-bottom: 40px; }
+.curso-bloco h2 { margin-bottom: 14px; }
+.curso-bloco p, .curso-bloco ul { margin-bottom: 16px; }
+.curso-rodape { margin-top: 40px; }
+@media (min-width: 821px) { .curso-pagina { padding: 44px 40px; } }
+
+@media (max-width: 820px) {
+    .curso-ficha,
+    .curso-acoes,
+    .curso-edital,
+    .curso-bloco,
+    .curso-matriz {
+        margin-bottom: 32px;
     }
 }

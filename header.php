@@ -70,7 +70,7 @@ if (!defined('ABSPATH')) exit;
                 <li><a href="<?php echo esc_url(home_url('/#cursos')); ?>">Cursos</a></li>
                 <li><a href="<?php echo esc_url(get_template_directory_uri() . '/pdf/edital-2026.pdf'); ?>" target="_blank" rel="noopener">Edital 2026</a></li>
                 <li><a href="<?php echo esc_url(get_template_directory_uri() . '/pdf/resultado-2025.pdf'); ?>" target="_blank" rel="noopener">Resultado 2025</a></li>
-                <li><a href="<?php echo esc_url(home_url('/?p=16')); ?>" target="_blank" rel="noopener">Sobre nós</a></li>
+                <li><a href="<?php echo esc_url(home_url('/?eeep_pagina=sobre')); ?>">Sobre nós</a></li>
             </ul>
         </nav>
     </div>
